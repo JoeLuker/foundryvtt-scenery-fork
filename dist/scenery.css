@@ -1,0 +1,358 @@
+.scenery {
+  display: flex;
+  flex-direction: column;
+}
+.scenery.app.window-app {
+  max-height: 80vh;
+}
+.scenery .window-content {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.scenery form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+}
+.scenery .variations-container {
+  flex: 0 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 0;
+  padding-right: 4px;
+  max-height: 60vh;
+}
+.scenery footer.sheet-footer {
+  flex: 0 0 auto;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.scenery footer.sheet-footer .sheet-footer-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.variation-card {
+  border: 1px solid var(--color-border-dark-primary);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: var(--color-control-bg);
+}
+.variation-card.active {
+  border-color: var(--color-border-highlight);
+  background: rgba(var(--color-primary-rgb, 0, 100, 200), 0.1);
+}
+.variation-card.default {
+  border-style: dashed;
+}
+.variation-card .variation-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.variation-card .variation-header input[type=radio] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-border-highlight);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.variation-card .variation-header input[type=radio]:hover {
+  transform: scale(1.1);
+}
+.variation-card .variation-header .variation-name {
+  flex: 1;
+}
+.variation-card .variation-header .variation-name strong {
+  font-weight: bold;
+  color: var(--color-text-light-primary);
+}
+.variation-card .variation-header .variation-name input[type=text] {
+  width: 100%;
+  background: var(--color-control-bg);
+  border: 1px solid var(--color-border-dark-tertiary);
+  padding: 2px 4px;
+  font-size: var(--font-size-12);
+}
+.variation-card .variation-header .variation-name input[type=text]:focus {
+  border-color: var(--color-border-highlight);
+  box-shadow: 0 0 3px var(--color-shadow-primary);
+}
+.variation-card .variation-header .variation-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.variation-card .variation-backgrounds {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.variation-card .variation-backgrounds .background-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.variation-card .variation-backgrounds .background-row .background-label {
+  width: 55px;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: var(--color-text-light-secondary);
+  font-size: 12px;
+}
+.variation-card .variation-backgrounds .background-row .background-label .fa-lock {
+  font-size: 10px;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+.variation-card .variation-backgrounds .background-row .form-fields {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.variation-card .variation-backgrounds .background-row .form-fields input.image {
+  flex: 1;
+  background: var(--color-control-bg);
+  border: 1px solid var(--color-border-dark-tertiary);
+  padding: 2px 4px;
+  font-size: var(--font-size-12);
+}
+.variation-card .variation-backgrounds .background-row .form-fields input.image:focus {
+  border-color: var(--color-border-highlight);
+  box-shadow: 0 0 3px var(--color-shadow-primary);
+}
+.variation-card .variation-backgrounds .background-row .form-fields input.image[readonly] {
+  background: var(--color-control-bg-disabled);
+  cursor: not-allowed;
+}
+.variation-card .variation-backgrounds .background-row .form-fields .file-picker {
+  width: 28px;
+  height: 24px;
+  line-height: 22px;
+  padding: 0;
+  text-align: center;
+  background: var(--color-control-bg);
+  border: 1px solid var(--color-border-dark-primary);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+.variation-card .variation-backgrounds .background-row .form-fields .file-picker:hover:not([disabled]) {
+  background: var(--color-control-bg-hover);
+  border-color: var(--color-border-highlight);
+  color: var(--color-text-highlight);
+}
+.variation-card .variation-backgrounds .background-row .form-fields .file-picker[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.variation-card .variation-elements {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border-dark-tertiary);
+}
+.variation-card .variation-elements .element-summary {
+  flex: 1;
+  font-size: 12px;
+  color: var(--color-text-light-secondary);
+}
+.variation-card .variation-elements .element-summary .live-indicator {
+  color: var(--color-level-warning);
+  font-size: 8px;
+  margin-right: 2px;
+  animation: pulse 2s infinite;
+}
+.variation-card .variation-elements .element-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.variation-card button {
+  padding: 2px 4px;
+  width: 28px;
+  height: 24px;
+  line-height: 20px;
+  text-align: center;
+  background: var(--color-control-bg);
+  border: 1px solid var(--color-border-dark-primary);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.variation-card button:hover:not([disabled]) {
+  background: var(--color-control-bg-hover);
+  border-color: var(--color-border-highlight);
+  color: var(--color-text-highlight);
+}
+.variation-card button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.scenes-sidebar .directory-item .scenery-variations {
+  flex: none;
+  position: absolute;
+  top: 0;
+  height: 20px;
+  font-size: 1em;
+  line-height: 1em;
+  text-align: center;
+  padding: 4px 8px;
+  background: var(--color-shadow-dark);
+  color: var(--color-text-light-highlight);
+  border-radius: 3px;
+}
+.scenes-sidebar .directory-item .scenery-variations label {
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-right: 4px;
+}
+
+.directory-header .scenery-button {
+  flex: 0 0 auto;
+  margin-right: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--button-background-color);
+  border: 1px solid var(--button-border-color);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--button-text-color);
+}
+.directory-header .scenery-button:hover {
+  background: var(--button-hover-background-color);
+  border-color: var(--button-hover-border-color);
+  color: var(--button-hover-text-color);
+}
+.directory-header .scenery-button i {
+  color: inherit;
+}
+
+.scenery-copy-dialog {
+  padding: 8px;
+}
+.scenery-copy-dialog .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+.scenery-copy-dialog .form-group > label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: var(--color-text-light-primary);
+}
+.scenery-copy-dialog .form-group select {
+  width: 100%;
+  height: var(--input-height);
+  line-height: var(--input-height);
+  padding: 0 0.5rem;
+  background: var(--input-background-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  box-shadow: none;
+  outline: 1px solid transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--input-text-color);
+  user-select: none;
+  cursor: var(--cursor-pointer);
+  transition: outline-color 0.5s;
+}
+.scenery-copy-dialog .form-group select:focus {
+  outline-color: var(--color-border-highlight);
+}
+.scenery-copy-dialog .form-group select option,
+.scenery-copy-dialog .form-group select optgroup {
+  font-family: inherit;
+  background: var(--color-select-option-bg);
+}
+.scenery-copy-dialog .element-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+.scenery-copy-dialog .element-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  font-weight: normal;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+.scenery-copy-dialog .element-checkboxes label:hover {
+  background: var(--color-control-hover);
+}
+.scenery-copy-dialog .element-checkboxes label input[type=checkbox] {
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-border-highlight);
+}
+.scenery-copy-dialog .element-checkboxes label i {
+  width: 16px;
+  text-align: center;
+}
+.scenery-copy-dialog .selection-helpers {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 12px;
+}
+.scenery-copy-dialog .selection-helpers a {
+  color: var(--color-text-hyperlink);
+  cursor: pointer;
+  text-decoration: none;
+}
+.scenery-copy-dialog .selection-helpers a:hover {
+  color: var(--color-border-highlight);
+  text-decoration: underline;
+}
+.scenery-copy-dialog .reset-option {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-dark-tertiary);
+}
+.scenery-copy-dialog .reset-option label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+.scenery-copy-dialog .reset-option label input[type=checkbox] {
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--color-border-highlight);
+}
+.scenery-copy-dialog .reset-option .hint {
+  font-size: 12px;
+  color: var(--color-text-light-secondary);
+  margin: 0;
+  padding-left: calc(16px + 4px);
+  font-style: italic;
+}/*$vite$:1*/

@@ -1048,6 +1048,13 @@ export default class Scenery extends BaseClass {
     if (!canvas?.scene) return;
     if (!game.user) return;
 
+    // Table fork (losing-omens, 2026-09-04): Foundry 14 scene levels. canvas.primary.background is the
+    // VIEWED level's mesh (PrimaryCanvasGroup#drawLevelTextures defines it per draw). Scenery manages only
+    // the first level's background; touching it while another level is viewed paints that level with the
+    // first level's image. Leave other levels alone.
+    const cv = canvas as unknown as { level?: { id: string }; scene?: { firstLevel?: { id: string } } };
+    if (cv.level && cv.scene?.firstLevel && cv.level.id !== cv.scene.firstLevel.id) return;
+
     // Note: We don't check scene modification permissions here because
     // setImage only changes the LOCAL canvas texture, not the scene document.
     // This allows players to see their designated background (plBackground)
@@ -1311,6 +1318,12 @@ export default class Scenery extends BaseClass {
    */
   static async resetBackground(): Promise<void> {
     if (!canvas?.scene) return;
+    // Table fork (losing-omens, 2026-09-04): Foundry 14 scene levels. canvas.primary.background is the
+    // VIEWED level's mesh (PrimaryCanvasGroup#drawLevelTextures defines it per draw). Scenery manages only
+    // the first level's background; touching it while another level is viewed paints that level with the
+    // first level's image. Leave other levels alone.
+    const cv = canvas as unknown as { level?: { id: string }; scene?: { firstLevel?: { id: string } } };
+    if (cv.level && cv.scene?.firstLevel && cv.level.id !== cv.scene.firstLevel.id) return;
 
     const sceneryScene = canvas.scene as SceneryScene;
     if (!sceneryScene._sceneryOriginalBackground) return;

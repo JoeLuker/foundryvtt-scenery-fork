@@ -20,15 +20,19 @@
       "url": "https://github.com/angedelamort"
     }
   ],
-  "version": "This is auto replaced",
+  "version": "3.0.0+table.1",
   "library": "false",
   "compatibility": {
     "minimum": "14",
     "verified": "14.360",
     "maximum": "14"
   },
-  "esmodules": ["./dist/scenery.js"],
-  "styles": ["./dist/scenery.css"],
+  "esmodules": [
+    "./dist/scenery.js"
+  ],
+  "styles": [
+    "./dist/scenery.css"
+  ],
   "languages": [
     {
       "lang": "de",
@@ -62,10 +66,8 @@
     }
   ],
   "relationships": {},
-  "url": "This is auto replaced",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
-  "bugs": "This is auto replaced",
-  "changelog": "This is auto replaced",
-  "readme": "This is auto replaced"
+  "url": "https://github.com/JoeLuker/foundryvtt-scenery-fork",
+  "bugs": "https://github.com/marcstraube/foundryvtt-scenery/issues",
+  "changelog": "https://github.com/JoeLuker/foundryvtt-scenery-fork/blob/table/TABLE-FORK.md",
+  "readme": "https://github.com/marcstraube/foundryvtt-scenery/blob/v3.0.0/README.md"
 }

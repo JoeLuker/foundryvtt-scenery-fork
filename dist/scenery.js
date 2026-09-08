@@ -176,8 +176,10 @@ function cleanPath(path) {
 * @param force - Log output even if debug logging is disabled
 */
 function log(data, force = false) {
-	if (isDebugEnabled() || force) if (typeof data === "string") console.log(`Scenery | ${data}`);
-	else console.log(data);
+	if (isDebugEnabled() || force) {
+		if (typeof data === "string") console.log(`Scenery | ${data}`);
+		else console.log(data);
+	}
 }
 /**
 * Get scenery data from a scene's flags
@@ -618,11 +620,12 @@ var CopyDialog = class CopyDialog extends foundry.applications.api.DialogV2 {
 	*/
 	static async show(config) {
 		const managed = getVariationManagedSelection();
-		new CopyDialog(config, await foundry.applications.handlebars.renderTemplate(TEMPLATES.COPY_DIALOG, {
+		const content = await foundry.applications.handlebars.renderTemplate(TEMPLATES.COPY_DIALOG, {
 			targetVariationName: config.targetVariation.name,
 			sourceVariations: config.sourceVariations,
 			managed
-		})).render(true);
+		});
+		new CopyDialog(config, content).render(true);
 	}
 };
 //#endregion
